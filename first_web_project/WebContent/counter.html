@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+ <meta charset="UTF-8" />
+ <title>计算器</title>
+ </head>
+ <body>
+ <h3>计算器</h3>
+ <form action="counterServlet" method="post">
+ <table border="1" width="600px">
+	<tr><td>第一个数</td><td><input type="text" name="num1" id="num1"/></td></tr>
+	<tr><td>运算符</td>
+		<td><select name="opt" id = "opt">
+	 			<option value="+"> + </option>
+	 			<option value="-"> - </option>
+	 			<option value="*"> * </option>
+			 	<option value="/"> / </option>
+	 		</select>
+	 	</td>
+	</tr>
+	<tr><td>第二个数</td><td><input type="text" name="num2" id = "num2"/></td></tr>
+	<tr><td colspan="2"><input type="submit" value="提交 "/></td></tr>
+</table>
+
+</form>
+<button onclick="result()">结果</button>
+结果<span id="sum"></span>
+
+	<script type="text/javascript">
+		function result(){
+			var num1 = document.getElementById("num1");
+			var num2 = document.getElementById("num2");
+			var opt = document.getElementById("opt");
+			var su =  (num1.value==""?0:num1.value)+opt.value+(num2.value==""?0:num2.value)+"";
+			document.getElementById("sum").innerHTML= eval(su);
+		}
+	</script>
+</body>
+</html>
